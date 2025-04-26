@@ -1,0 +1,15 @@
+# robots.txt для сайта http://www.vkusnie_raki.ru
+
+# Разрешаем всем ботам доступ ко всем страницам, кроме корзины
+User-agent: *
+Allow: /
+Disallow: /php/cart.php
+
+# Указываем путь к XML-карте сайта
+Sitemap: http://www.vkusnie_raki.ru/sitemap.xml
+
+Disallow: /php/Classes/product.php
+Disallow: /php/functions/database.php
+Disallow: /php/telegram.php
+Disallow: /php/header.php
+Disallow: /php/footer.php
