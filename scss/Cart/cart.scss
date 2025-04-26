@@ -1,0 +1,286 @@
+@use "../style.scss";
+
+.h1-empty {
+   text-align: center;
+}
+
+.cart-main {
+   height: auto;
+   padding: 2rem;
+   @include style.display-flex(wrap, row, 5rem, center, center);
+   h1 {
+      padding-left: 2rem;
+      align-self: baseline;
+      font-weight: bolder;
+      font-size: 2rem;
+      color: style.$secondary-color;
+   }
+   &__cart-products {
+      background-color: style.$main-color;
+      border-radius: 8px;
+      @include style.display-flex(wrap, column, 2rem, none, center);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 80dvw;
+      max-width: 1200px;
+      padding: 1.5rem;
+      height: auto;
+      min-height: 200px;
+      flex: 1;
+   }
+   &__product {
+      overflow: hidden;
+      border-radius: 8px;
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      margin-bottom: 1rem;
+      border: 1px solid transparentize(style.$accent-color, 0.5);
+      &--body {
+         @include style.display-flex(nowrap, row, 3rem, center, center);
+         padding: 1rem;
+      }
+      &--img {
+         width: 120px;
+         height: 120px;
+         object-fit: contain;
+         border-radius: 4px;
+      }
+      &--btn {
+         color: style.$secondary-color;
+         background: none;
+         border: none;
+         cursor: pointer;
+         font-size: 0.9rem;
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+      &--name {
+         width: 30%;
+         font-size: 1rem;
+         font-weight: 500;
+         color: style.$text-color;
+      }
+      &--price {
+         font-weight: bold;
+         font-size: 1.2rem;
+         color: style.$secondary-color;
+      }
+      &--footer {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         width: 100%;
+         padding: 1rem;
+         font-size: 16px;
+         color: style.$text-color;
+         border-top: 1px solid transparentize(style.$accent-color, 0.5);
+
+         @include style.display-flex(none, row, 0.2rem, center, center);
+         &-actions {
+            @include style.display-flex(none, row, 0.5rem, center, center);
+
+            &-btn {
+               &.cancel {
+                  width: 30%;
+                  margin-left: 20px;
+                  padding: 0.5rem 1rem;
+               }
+
+               width: 40px;
+               height: 40px;
+               border-radius: 4px;
+               background-color: style.$main-color;
+               border: 1px solid transparentize(style.$accent-color, 0.5);
+               transition: all 0.2s ease;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 1.2rem;
+               color: style.$text-color;
+
+               &:hover {
+                  background-color: transparentize(style.$accent-color, 0.7);
+               }
+
+               &:active {
+                  background-color: transparentize(style.$accent-color, 0.5);
+               }
+            }
+            &-input {
+               background-color: style.$main-color;
+               border: 1px solid transparentize(style.$accent-color, 0.5);
+               text-align: center;
+               height: 40px;
+               font-size: 1rem;
+               font-weight: normal;
+               width: 60px;
+               border-radius: 4px;
+               color: style.$text-color;
+            }
+         }
+         &-sum {
+            padding-right: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: style.$secondary-color;
+         }
+      }
+   }
+
+   &__section {
+      position: sticky;
+      top: 2rem;
+      align-self: flex-start;
+
+      &--result {
+         background-color: style.$main-color;
+         border-radius: 8px;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+         padding: 1.5rem;
+         margin-bottom: 1.5rem;
+
+         h2 {
+            color: style.$secondary-color;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+         }
+
+         &-sum {
+            font-size: 1.2rem;
+            color: style.$text-color;
+
+            p {
+               margin-bottom: 0.5rem;
+            }
+
+            #total-sum {
+               font-weight: bold;
+               color: style.$secondary-color;
+               font-size: 1.4rem;
+            }
+         }
+      }
+
+      &--form-wrapper {
+         background-color: style.$main-color;
+         border-radius: 8px;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+         padding: 1.5rem;
+
+         h2 {
+            color: style.$secondary-color;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+         }
+      }
+
+      &--form {
+         .form-group {
+            margin-bottom: 1.2rem;
+
+            label {
+               display: block;
+               margin-bottom: 0.5rem;
+               color: style.$text-color;
+               font-weight: 500;
+            }
+
+            input,
+            textarea {
+               width: 95%;
+               padding: 0.8rem;
+               border: 1px solid transparentize(style.$accent-color, 0.5);
+               border-radius: 4px;
+               background-color: white;
+               color: style.$text-color;
+               font-size: 1rem;
+               transition: all 0.2s ease;
+
+               &:focus {
+                  outline: none;
+                  border-color: style.$accent-color;
+                  box-shadow: 0 0 0 2px transparentize(style.$accent-color, 0.7);
+               }
+            }
+
+            textarea {
+               resize: vertical;
+               min-height: 80px;
+            }
+         }
+
+         .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: style.$secondary-color;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+
+            &:hover {
+               background-color: darken(style.$secondary-color, 10%);
+            }
+
+            &:active {
+               transform: translateY(2px);
+            }
+         }
+      }
+   }
+}
+
+// Адаптация для телефонов
+@media screen and (max-width: 915px) {
+   .cart-main {
+      &__section {
+         width: 100dvw;
+         align-self: center;
+      }
+      &__cart-products {
+         width: 90dvw;
+      }
+      &__product {
+         padding: 0.1rem;
+         &--footer {
+            &-actions {
+               &-btn {
+                  &.cancel {
+                     margin: 0.5rem;
+                     width: auto;
+                     height: auto;
+                  }
+               }
+            }
+         }
+         &--img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 4px;
+         }
+         &--body {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 0;
+         }
+         width: 100%;
+         p,
+         h2,
+         h3 {
+            text-align: center;
+            white-space: nowrap;
+            font-size: 2dvh;
+         }
+      }
+   }
+}
+

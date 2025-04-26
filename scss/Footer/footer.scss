@@ -1,0 +1,89 @@
+@use "../style.scss" as style;
+
+.footer {
+    width: auto;
+    @include style.display-flex($gap: 38dvw, $align-items: center);
+    background-color: rgba(0, 0, 0, 0.5); // Прозрачный фон
+    padding: 0 1rem;
+    height: 10dvh;
+    &__info {
+        @include style.display-flex($flex-direction: row, $gap: 25dvw);
+        height: 100%;
+        &--left,
+        &--right {
+            @include style.display-flex($flex-direction: column);
+        }
+    }
+
+    &__h4 {
+        a {
+            color: lighten(style.$text-color, 55%);
+        }
+        color: lighten(style.$text-color, 55%);
+        margin: 0.2rem;
+        font-size: 2.5dvh;
+        width: max-content;
+    }
+
+    &__h2 {
+        color: darken(style.$text-color, 2%);
+        &::before {
+            content: "";
+            width: 16rem;
+            height: 2rem;
+            position: absolute;
+            z-index: -1;
+            background-color: style.$main-color;
+            transform: skewX(-27deg) rotateZ(-2deg);
+        }
+    }
+
+    &__logo {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%; // Круглый логотип
+    }
+}
+
+// Адаптация для мобильных устройств
+@media screen and (max-width: 915px) {
+    .footer {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        flex-direction: column;
+        gap: 4dvw;
+        height: 33dvh;
+        justify-content: center;
+        align-items: center;
+
+        &__info {
+            gap: 1dvw;
+            flex-direction: column;
+            &--left,
+            &--right {
+                @include style.display-flex(
+                    $flex-direction: column,
+                    $wrap: nowrap,
+                    $align-items: center,
+                    $justify-content: center
+                );
+            }
+        }
+    }
+}
+
+// Адаптация для планшетов
+@media screen and (min-width: 915px) and (max-width: 1360px) {
+    .footer {
+        gap: 20dvw;
+        padding: 1rem;
+        &__info {
+            gap: 25dvw;
+
+            &--left,
+            &--right {
+                @include style.display-flex($flex-direction: column);
+            }
+        }
+    }
+}
